@@ -40,7 +40,7 @@ import (
 func main() {
 	/*code :=
 		`program
-		var a, b: integer;
+		var a,b,b: integer;
 		begin
 		while a < b do
 		if b > 0 then b := b - a else b := a + 1
@@ -53,7 +53,7 @@ if c < d then x := y + z
 end`
 	lex := lexical.NewLex()
 	lex.Analyse(code)
-	//lex.PrintCode()
+	lex.PrintCode()
 	fmt.Println("=====================================")
 	if len(lex.Errs) != 0 {
 		return
