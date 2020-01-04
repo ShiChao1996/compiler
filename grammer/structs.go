@@ -31,7 +31,7 @@ package grammer
 
 import (
 	"fmt"
-	lex "compiler/lexical"
+	lex "github.com/shichao1996compiler/lexical"
 	"strconv"
 )
 
@@ -158,7 +158,7 @@ func (s *codeStack) findEndIndex() int {
 func (s *codeStack) print() {
 	for i, a := range s.stk {
 		v, _ := a.GetAttr("value")
-		if v==""{
+		if v == "" {
 			v = "_"
 		}
 		fmt.Println(strconv.Itoa(i), strconv.Itoa(a.Tp), string(a.Value), v)

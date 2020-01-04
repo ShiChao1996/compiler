@@ -30,11 +30,11 @@
 package grammer
 
 import (
-	lex "compiler/lexical"
 	"errors"
-	"strconv"
 	"fmt"
-	log "compiler/logger"
+	lex "github.com/shichao1996compiler/lexical"
+	log "github.com/shichao1996compiler/logger"
+	"strconv"
 )
 
 var (

@@ -30,12 +30,12 @@
 package grammer
 
 import (
-	lex "compiler/lexical"
 	"errors"
-	"strings"
-	log "compiler/logger"
-	"compiler/language"
+	"github.com/shichao1996compiler/language"
+	lex "github.com/shichao1996compiler/lexical"
+	log "github.com/shichao1996compiler/logger"
 	"strconv"
+	"strings"
 )
 
 var actions *ActionMap
@@ -188,9 +188,9 @@ func (am *ActionMap) PrintErr() {
 
 func (am *ActionMap) BackPatch(t, v string) {
 	strSlice := strings.Fields(t)
-	for _, str := range strSlice{
-		tar,_ := strconv.Atoi(str)
-		val,_ := strconv.Atoi(v)
+	for _, str := range strSlice {
+		tar, _ := strconv.Atoi(str)
+		val, _ := strconv.Atoi(v)
 
 		if tar > am.quoList.CurID {
 			return

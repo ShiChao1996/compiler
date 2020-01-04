@@ -38,12 +38,12 @@ var (
 	Tokens = "( ) + - * / . , : ; := = <= < <> > >="
 
 	/*Grammer = `
-X-> # E #
-E-> E + T | T
-T-> T * F | F
-F-> P . F | P
-P-> ( E ) | i
-`*/
+	X-> # E #
+	E-> E + T | T
+	T-> T * F | F
+	F-> P . F | P
+	P-> ( E ) | i
+	`*/
 
 	Grammer = `
 X -> # P #
@@ -84,7 +84,7 @@ func IsToken(word []byte) (bool, int) {
 	return false, 0
 }
 
-func IsBuiltIn(word []byte) (bool) {
+func IsBuiltIn(word []byte) bool {
 	isToken, _ := IsToken(word)
 	isKey, _ := IsKey(word)
 	return isToken || isKey

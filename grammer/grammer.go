@@ -31,11 +31,11 @@ package grammer
 
 import (
 	"bytes"
-	"strings"
-	"compiler/language"
-	"fmt"
 	"errors"
-	"compiler/lexical"
+	"fmt"
+	"github.com/shichao1996compiler/language"
+	"github.com/shichao1996compiler/lexical"
+	"strings"
 )
 
 var (

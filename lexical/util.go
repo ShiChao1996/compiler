@@ -30,10 +30,10 @@
 package lexical
 
 import (
+	"bytes"
+	"errors"
 	"unicode"
 	"unicode/utf8"
-	"errors"
-	"bytes"
 )
 
 var (

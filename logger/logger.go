@@ -32,7 +32,7 @@ package logger
 import (
 	"strings"
 
-	"github.com/fengyfei/gu/libs/logger/logs"
+	"github.com/shichao1996compiler/logger/logs"
 )
 
 // Debug prints debug messages.

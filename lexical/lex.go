@@ -31,12 +31,12 @@ package lexical
 
 import (
 	"bytes"
-	"unicode/utf8"
-	"compiler/language"
-	"strconv"
-	"fmt"
 	"errors"
-	log "compiler/logger"
+	"fmt"
+	"github.com/shichao1996compiler/language"
+	log "github.com/shichao1996compiler/logger"
+	"strconv"
+	"unicode/utf8"
 )
 
 type lexErr struct {
@@ -70,7 +70,7 @@ func (l *Lex) Analyse(s string) []error {
 		for i, length, ok := ContainsToken(word); ok; i, length, ok = ContainsToken(word) {
 			sep = word[:i]
 			l.handleWord(sep)
-			l.handleWord(word[i:i+length])
+			l.handleWord(word[i : i+length])
 			word = word[i+length:]
 		}
 		l.handleWord(word)

@@ -30,8 +30,8 @@
 package grammer
 
 import (
-	"fmt"
 	"bytes"
+	"fmt"
 	"strconv"
 )
 
@@ -74,7 +74,7 @@ func (pt *priorityTable) addRelation(line, column []byte, relation int) {
 	}
 	if pt.table[indexLine][indexColumn] != pt.undefined && pt.table[indexLine][indexColumn] != relation {
 		fmt.Println("==================================dup!!!")
-		fmt.Println(string(line),string(column))
+		fmt.Println(string(line), string(column))
 		return
 	}
 	pt.table[indexLine][indexColumn] = relation

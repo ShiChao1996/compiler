@@ -30,21 +30,21 @@
 package main
 
 import (
-	"compiler/lexical"
-	_ "fmt"
-	_ "compiler/language"
-	"compiler/grammer"
 	"fmt"
+	_ "fmt"
+	"github.com/shichao1996compiler/grammer"
+	_ "github.com/shichao1996compiler/language"
+	"github.com/shichao1996compiler/lexical"
 )
 
 func main() {
 	/*code :=
-		`program
-		var a,b,b: integer;
-		begin
-		while a < b do
-		if b > 0 then b := b - a else b := a + 1
-		end`*/
+	`program
+	var a,b,b: integer;
+	begin
+	while a < b do
+	if b > 0 then b := b - a else b := a + 1
+	end`*/
 	//code := `(i + i) + i * i . i #`
 	code := `
 program

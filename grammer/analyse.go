@@ -30,10 +30,10 @@
 package grammer
 
 import (
-	"fmt"
-	lex "compiler/lexical"
 	"bytes"
-	log "compiler/logger"
+	"fmt"
+	lex "github.com/shichao1996compiler/lexical"
+	log "github.com/shichao1996compiler/logger"
 )
 
 type Parser struct {
@@ -52,7 +52,7 @@ func (g *Parser) codeToReduction() ([]*lex.CodeLine, int, int) {
 		return nil, 0, 0
 	}
 	if starter == ending {
-		return g.codeStack.stk[starter:ending+1], starter, ending
+		return g.codeStack.stk[starter : ending+1], starter, ending
 	}
 	return g.codeStack.stk[starter:ending], starter, ending
 }
@@ -75,7 +75,6 @@ func (g *Parser) Analyse(l *lex.Lex) {
 
 	g.codeStack.push(l.NextCode())
 	//fmt.Println("----------start reduction----------")
-	//fmt.Printf("%-30s %-30s %-30s \n", "stack", "cache", "action")
 	for l.HasNext() {
 		next = l.NextCode()
 		prev := g.codeStack.top()
@@ -86,15 +85,15 @@ func (g *Parser) Analyse(l *lex.Lex) {
 
 		//fmt.Println("compare: ", string(prevSymbol), string(nextSymbol), strconv.Itoa(pt.compare(prevSymbol, nextSymbol)))
 		switch pt.compare(prevSymbol, nextSymbol) {
-		case pt.greatter: // 归约
+		case pt.greatter:
 			action = "reduction"
 			g.Reduction()
 
-		case pt.equal: // 下一个
+		case pt.equal:
 			action = "input next"
 			continue
 
-		case pt.lower: // 记录起始下标
+		case pt.lower:
 			action = "lower"
 		default:
 			action = "default"
@@ -134,7 +133,6 @@ func (g *Parser) reduction() {
 	//fmt.Printf("start: %d   end: %d \n", start, end)
 	g.progress = append(g.progress, fmt.Sprintf("%-80s %90s %40s", g.codeStack.sprintf(), "", "reduction"))
 
-
 	var lines [][]byte
 
 	for _, c := range codeSlice {
@@ -150,7 +148,7 @@ func (g *Parser) reduction() {
 
 	emitFunc := actions.SelectFunc(code)
 	if emitFunc != nil {
-		emitFunc(starter,codeSlice)
+		emitFunc(starter, codeSlice)
 	}
 	/*value, err := starter.GetAttr("value")
 	if err == nil {
