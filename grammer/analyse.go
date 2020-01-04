@@ -85,15 +85,15 @@ func (g *Parser) Analyse(l *lex.Lex) {
 
 		//fmt.Println("compare: ", string(prevSymbol), string(nextSymbol), strconv.Itoa(pt.compare(prevSymbol, nextSymbol)))
 		switch pt.compare(prevSymbol, nextSymbol) {
-		case pt.greatter:
+		case pt.greatter: // 归约
 			action = "reduction"
 			g.Reduction()
 
-		case pt.equal:
+		case pt.equal: // 推入下一个
 			action = "input next"
 			continue
 
-		case pt.lower:
+		case pt.lower: // 记录起始下标
 			action = "lower"
 		default:
 			action = "default"
